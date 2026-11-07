@@ -307,3 +307,9 @@ footer a{color:var(--gold2);text-decoration:none}
 .snd:hover,.snd[aria-pressed=true]{border-color:rgba(242,210,122,.6);color:var(--gold2)}
 .snd .ic{font-size:calc(var(--u)*14px);letter-spacing:0}
 @media (max-width:760px), (max-aspect-ratio:4/5){.snd{height:30px;padding:0 10px}.snd .tx{display:none}.nav-right{gap:10px}}
+
+/* 资料与成员：电影感特写背景（女主抱着奶蛙），随滚动固定在视口里 */
+.more-bg{position:sticky;top:0;height:100vh;height:100lvh;margin-bottom:-100vh;margin-bottom:-100lvh;z-index:0;pointer-events:none;background:url(img/more-bg.jpg) right center/cover no-repeat;opacity:.55}
+.more-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0c121c 0%,rgba(12,18,28,.92) 38%,rgba(12,18,28,.45) 68%,rgba(12,18,28,.15) 100%),linear-gradient(180deg,rgba(12,18,28,.5),transparent 25%,transparent 75%,rgba(12,18,28,.6))}
+#more>*:not(.more-bg){position:relative;z-index:1}
+@media (max-width:760px), (max-aspect-ratio:4/5){.more-bg{background-position:82% center;opacity:.32}.more-bg::after{background:linear-gradient(180deg,rgba(12,18,28,.55),rgba(12,18,28,.25) 50%,rgba(12,18,28,.65))}}

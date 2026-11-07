@@ -483,6 +483,7 @@
     h += "</div>";
     var TH = C.thanks;
     h += '<section class="thanks" id="sec-thanks" aria-label="' + esc(TH.line1 + " " + TH.line2) + '"><div class="thanks-bg" style="background-image:url(' + esc(TH.image) + ')"></div><div class="thanks-in reveal"><div class="kicker">' + esc(C.site.title) + " · " + esc(C.site.course) + '</div><h2><span class="t1">' + esc(TH.line1) + '</span><span class="t2">' + esc(TH.line2) + '</span></h2><p>' + esc(C.site.subtitle) + '</p></div><footer>' + esc(Z.references || "") + ' · <a href="#top">回到开头 ↑</a></footer></section>';
+    h = '<div class="more-bg" aria-hidden="true"></div>' + h;
     $("#more").innerHTML = h;
   }
   buildMore();
