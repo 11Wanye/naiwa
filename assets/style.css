@@ -293,3 +293,12 @@ footer a{color:var(--gold2);text-decoration:none}
 .cz:hover{background:rgba(242,210,122,.2)}
 .cz.prev{left:-14px}.cz.next{right:-14px}
 @media (max-width:760px), (max-aspect-ratio:4/5){.cz{display:none}.carousel .strip .shot img{height:56vh}.carousel .strip.tall .shot img{height:72vh}}
+
+/* 手机竖屏：图片贴底，上缘渐隐到深色背景 */
+@media (max-width:760px), (max-aspect-ratio:4/5){
+  .layer{background:#0b111b}
+  .imgbox{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%,#000 100%);mask-image:linear-gradient(180deg,transparent 0,#000 22%,#000 100%)}
+}
+@media (max-width:760px), (max-aspect-ratio:4/5){
+  .layers>.layer:first-child .imgbox{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 72%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 72%,transparent 100%)}
+}

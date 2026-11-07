@@ -58,7 +58,7 @@ window.NAIWA = {
       foot: "向下滑动", pct: "奶蛙化 0%",
       image: "assets/img/s1-wake.jpg",
       alt: "女生窝在被子里刷手机，嘴角上扬",
-      focus: 0.70, transition: "wipe"
+      focus: 0.69, transition: "wipe"
     },
     {
       id: "class", time: "10:00", label: "上课",
@@ -69,7 +69,7 @@ window.NAIWA = {
       foot: "向下滑动", pct: "奶蛙化 20%",
       image: "assets/img/s2-class.jpg",
       alt: "女生和同桌捂嘴憋笑，头上冒出奶蛙眼睛",
-      focus: 0.78, transition: "pan"
+      focus: 0.62, transition: "pan"
     },
     {
       id: "ddl", time: "12:00", label: "午休",
@@ -80,7 +80,7 @@ window.NAIWA = {
       foot: "向下滑动", pct: "奶蛙化 50%",
       image: "assets/img/s3-ddl.jpg",
       alt: "半奶蛙化的女生对着电脑上的 DDL 清单扎马步、伸掌招架",
-      focus: 0.62, transition: "iris"
+      focus: 0.60, transition: "iris"
     },
     {
       id: "everyone", type: "chat", time: "16:00", label: "放学",
@@ -150,7 +150,7 @@ window.NAIWA = {
       afterAlt: "同一个雨夜房间，女生变成了一只黄色的奶蛙",
       steps: [],
       endnote: "05 / 奶蛙化 100%",
-      focus: 0.80, afterFocus: 0.70, transition: "dawn",
+      focus: 0.70, afterFocus: 0.70, transition: "dawn",
       chats: [
         {
           title: "妈妈", tag: "女主和妈妈",
@@ -176,7 +176,7 @@ window.NAIWA = {
       foot: "继续向下 · 资料与成员", pct: "",
       image: "assets/img/s6-end.jpg",
       alt: "女生笑着抱住奶蛙玩偶",
-      focus: 0.74
+      focus: 0.64
     }
   ],
 

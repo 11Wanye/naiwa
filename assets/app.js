@@ -166,9 +166,13 @@
 
   /* ---------- 每帧渲染 ---------- */
   var lastT = null, Tnow = 0, forcedY = null;
-  function imgMap(fx) {
-    var s = Math.max(vw / 1440, vh / 810);
-    var ox = clamp(vw / 2 - fx * 1440 * s, vw - 1440 * s, 0), oy = (vh - 810 * s) / 2;
+  function imgMap(fx, top) {
+    var s = Math.max(vw / 1440, vh / 810), oy;
+    if (mobile) {
+      // 手机竖屏：不再把横图放大到铺满整屏（只能看到人物局部），而是露出约一半画面、贴在屏幕下方，上方留给标题
+      s = Math.min(vw / 700, vh / 810); oy = top ? vh * .1 : vh - 810 * s - vh * .04;
+    }
+    var ox = clamp(vw / 2 - fx * 1440 * s, vw - 1440 * s, 0); if (!mobile) oy = (vh - 810 * s) / 2;
     return { s: s, ox: ox, oy: oy };
   }
   function setBox(box, m) { box.style.transform = "translate3d(" + m.ox.toFixed(2) + "px," + m.oy.toFixed(2) + "px,0) scale(" + m.s.toFixed(5) + ")"; }
@@ -319,7 +323,7 @@
         o.segs.forEach(function (sg, k2) { var w = (k2 === 0 ? 1 : smooth((t - o.bounds[k2 - 1]) / .45)) * (1 - smooth((t - o.bounds[k2]) / .45)); acc += w * sg.data.spotAt[0] / 1440; wsum += w; });
         var wa = smooth((t - o.bounds[n - 1]) / .45); acc += wa * (o.data.afterFocus || fx); wsum += wa; fx = acc / Math.max(.0001, wsum);
       }
-      var m = imgMap(fx); o.map = m;
+      var m = imgMap(fx, o.i === 0); o.map = m;
       setBox(o.box, m);
       o.tilt.style.transform = tiltTransform(j, 1);
       if (o.fg) {
