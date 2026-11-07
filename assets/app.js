@@ -142,7 +142,7 @@
       });
     });
   }
-  var bufs = {}, bgmGain = null, bgmSrc = null;
+  var bufs = {}, bgmGain = null, bgmSrc = null, unlockEl = null;
   function loadBuf(name) {
     if (bufs[name]) return bufs[name];
     bufs[name] = fetch("assets/audio/" + name + ".wav").then(function (r) { return r.arrayBuffer(); })
@@ -169,9 +169,15 @@
     var b = document.getElementById("sndBtn"); if (!b) return;
     b.addEventListener("click", function () {
       sndOn = !sndOn;
+      if (sndOn) {
+        try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}
+        if (!unlockEl) { unlockEl = new Audio("assets/audio/silence.wav"); unlockEl.loop = true; unlockEl.setAttribute("playsinline", ""); }
+        var pp = unlockEl.play(); if (pp && pp.catch) pp.catch(function () {});
+      } else if (unlockEl) unlockEl.pause();
       if (sndOn) { var AC = window.AudioContext || window.webkitAudioContext; if (!actx && AC) actx = new AC(); if (actx && actx.state === "suspended") actx.resume(); }
       b.setAttribute("aria-pressed", sndOn ? "true" : "false"); b.setAttribute("aria-label", sndOn ? "关闭声音" : "打开声音");
       b.querySelector(".ic").textContent = sndOn ? "🔊" : "🔇";
+      b.querySelector(".tx").textContent = sndOn ? "声音已开" : "开启声音";
       if (sndOn) { startBgm(); ding(true); } else if (actx) { bgmGain && bgmGain.gain.setTargetAtTime(0, actx.currentTime, .15); setTimeout(function () { if (!sndOn) actx.suspend(); }, 600); }
     });
   })();

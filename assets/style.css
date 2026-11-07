@@ -53,7 +53,7 @@ em{font-style:normal}
 /* 每一幕的文字 */
 .copy{position:absolute;inset:0;pointer-events:none;visibility:hidden}
 .copy>*{will-change:transform,opacity}
-.eng{position:absolute;left:calc(var(--u)*52px);top:calc(var(--u)*130px);font:italic 300 calc(var(--u)*160px)/.9 var(--serif);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(242,210,122,.22);white-space:nowrap}
+.eng{position:absolute;left:calc(var(--u)*52px);top:calc(var(--u)*82px);font:italic 300 calc(var(--u)*98px)/.9 var(--serif);letter-spacing:-.04em;color:rgba(242,210,122,.07);-webkit-text-stroke:1.5px rgba(242,210,122,.6);white-space:nowrap}
 .title{position:absolute;left:calc(var(--u)*56px);top:calc(var(--u)*260px);max-width:calc(var(--u)*640px);color:var(--paper)}
 .kicker{font:500 calc(var(--u)*12px)/1 var(--sans);letter-spacing:.42em;color:var(--gold2);margin-bottom:calc(var(--u)*28px)}
 .copy h1,.copy h2{font:900 calc(var(--u)*84px)/1.12 var(--serif);letter-spacing:.02em;text-shadow:0 12px 50px rgba(0,0,0,.35)}
@@ -190,7 +190,7 @@ footer a{color:var(--gold2);text-decoration:none}
   .read .tm{font-size:21px}.read .tm small{font-size:9px;margin-left:4px}
   .read .lb{font-size:9px;margin-top:4px;letter-spacing:.3em}
   .shade{background:linear-gradient(180deg,rgba(12,18,30,.88) 0%,rgba(12,18,30,.62) 34%,rgba(12,18,30,.12) 56%,rgba(12,18,30,0) 66%),linear-gradient(0deg,rgba(12,18,30,.75),rgba(12,18,30,0) 26%)}
-  .eng{left:14px;top:84px;font-size:72px;-webkit-text-stroke:1px rgba(242,210,122,.18)}
+  .eng{left:14px;top:84px;font-size:72px;-webkit-text-stroke:1.2px rgba(242,210,122,.55)}
   .title{left:22px;right:22px;top:104px;max-width:none}
   .kicker{font-size:10.5px;letter-spacing:.3em;margin-bottom:16px}
   .copy h1,.copy h2{font-size:40px;line-height:1.16}
