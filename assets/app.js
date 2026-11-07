@@ -447,7 +447,7 @@
   function onResize() { var w = innerWidth, h = stageEl.clientHeight; if (w !== lastW || Math.abs(h - lastH) > 120) { lastW = w; lastH = h; layout(); } }
   addEventListener("resize", onResize);
   var storyImgs = [].slice.call(document.querySelectorAll(".stage img"));
-  window.__ready = Promise.all([document.fonts ? document.fonts.ready : 0].concat(storyImgs.map(function (im) { return im.decode ? im.decode().catch(function () {}) : 0; }))).then(function () {
+  window.__ready = Promise.race([Promise.all([document.fonts ? document.fonts.ready : 0].concat(storyImgs.map(function (im) { return im.decode ? im.decode().catch(function () {}) : 0; }))), new Promise(function (r) { setTimeout(r, 2500); })]).then(function () {
     onResize(); layout(); render(0, scrollY);
     document.documentElement.classList.add("ready");
     if (!manual) {
