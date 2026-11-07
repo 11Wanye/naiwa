@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>以蛙之名呼唤我 · CUS6032</title>
+<meta name="description" content="以蛙之名呼唤我：那些说不出口的情绪，奶蛙替我们说了。CUS6032 小组展示网站。">
+<meta property="og:title" content="以蛙之名呼唤我">
+<meta property="og:description" content="那些说不出口的情绪，奶蛙替我们说了">
+<meta property="og:image" content="assets/img/s0-cover.jpg">
+<meta name="theme-color" content="#0f1622">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@300;900&display=swap">
+<link rel="preload" as="image" href="assets/img/s0-cover-bg.jpg">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<!-- 网页内容全部由 assets/content.js 里的文字生成；要改字请去 content.js -->
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="nav">
+  <a class="brand" href="#top"><b id="brandTitle">以蛙之名呼唤我</b> <span id="brandCourse">· CUS6032</span></a>
+  <div class="nav-right">
+    <a class="more-link" href="#more" id="moreLink">资料与分工 ↓</a>
+    <div class="clock" aria-live="polite">
+      <div class="dial" aria-hidden="true"><i class="h"></i><i class="m"></i><b></b></div>
+      <div class="read"><div class="tm"><span id="clockTime">07:59</span><small id="clockAp">AM</small></div><div class="lb" id="clockLabel">清晨</div></div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section id="story" aria-label="一天的故事">
+    <div class="stage">
+      <div class="layers"></div>
+      <div class="shade" aria-hidden="true"></div>
+      <div class="copies"></div>
+      <div class="chatstage" aria-live="polite"></div>
+      <div class="wipe-line" aria-hidden="true"></div>
+      <div class="flash" aria-hidden="true"></div>
+      <nav class="rail" aria-label="跳到某一幕"></nav>
+    </div>
+  </section>
+  <div id="more"></div>
+</main>
+
+<div class="lightbox" hidden><img alt=""><button type="button" aria-label="关闭">×</button></div>
+
+<script src="assets/content.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
