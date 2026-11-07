@@ -145,7 +145,7 @@
   var bufs = {}, bgmGain = null, bgmSrc = null, unlockEl = null;
   function loadBuf(name) {
     if (bufs[name]) return bufs[name];
-    bufs[name] = fetch("assets/audio/" + name + ".wav").then(function (r) { return r.arrayBuffer(); })
+    bufs[name] = fetch("assets/audio/" + name + ".wav?v=2").then(function (r) { return r.arrayBuffer(); })
       .then(function (ab) { return new Promise(function (ok, no) { actx.decodeAudioData(ab, ok, no); }); });
     return bufs[name];
   }
@@ -161,8 +161,8 @@
   function morphSfx() {
     if (!sndOn || !actx) return;
     loadBuf("morph").then(function (b) {
-      var src = actx.createBufferSource(), g = actx.createGain(); g.gain.value = .9; src.buffer = b; src.connect(g); g.connect(actx.destination); src.start();
-      if (bgmGain) { var n = actx.currentTime; bgmGain.gain.cancelScheduledValues(n); bgmGain.gain.setValueAtTime(bgmGain.gain.value, n); bgmGain.gain.linearRampToValueAtTime(.12, n + .1); bgmGain.gain.setTargetAtTime(.38, n + 1.4, .5); }
+      var src = actx.createBufferSource(), g = actx.createGain(); g.gain.value = .7; src.buffer = b; src.connect(g); g.connect(actx.destination); src.start();
+      if (bgmGain) { var n = actx.currentTime; bgmGain.gain.cancelScheduledValues(n); bgmGain.gain.setValueAtTime(bgmGain.gain.value, n); bgmGain.gain.linearRampToValueAtTime(.22, n + .25); bgmGain.gain.setTargetAtTime(.38, n + 1.4, .5); }
     });
   }
   (function () {
