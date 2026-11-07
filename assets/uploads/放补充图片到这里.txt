@@ -1,0 +1,1 @@
+把补充图片放在这里，然后在 assets/content.js 里写上路径，例如 assets/uploads/a-01.jpg
