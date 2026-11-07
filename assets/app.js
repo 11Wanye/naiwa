@@ -123,6 +123,35 @@
       sg.rowGeo = sg.rows.map(function (r) { return [r.offsetTop, r.offsetHeight]; });
     });
   }
+
+  /* ---------- 声音：消息提示音（用 Web Audio 现场合成，不含任何外部音频文件） ---------- */
+  var sndOn = false, actx = null, lastDing = 0;
+  function ding(incoming) {
+    if (!sndOn || !actx) return;
+    var now = actx.currentTime; if (now - lastDing < .09) return; lastDing = now;
+    var out = actx.createGain(); out.gain.value = incoming ? .32 : .16; out.connect(actx.destination);
+    var notes = incoming ? [[1046.5, 0], [1568, .075]] : [[1318.5, 0]];
+    notes.forEach(function (n) {
+      [1, 2.01].forEach(function (h, k) {
+        var o = actx.createOscillator(), g = actx.createGain();
+        o.type = "sine"; o.frequency.value = n[0] * h;
+        var t = now + n[1], peak = k ? .18 : 1;
+        g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(peak, t + .006);
+        g.gain.exponentialRampToValueAtTime(.0008, t + (k ? .12 : .32));
+        o.connect(g); g.connect(out); o.start(t); o.stop(t + .36);
+      });
+    });
+  }
+  (function () {
+    var b = document.getElementById("sndBtn"); if (!b) return;
+    b.addEventListener("click", function () {
+      sndOn = !sndOn;
+      if (sndOn) { var AC = window.AudioContext || window.webkitAudioContext; if (!actx && AC) actx = new AC(); if (actx && actx.state === "suspended") actx.resume(); }
+      b.setAttribute("aria-pressed", sndOn ? "true" : "false"); b.setAttribute("aria-label", sndOn ? "关闭声音" : "打开声音");
+      b.querySelector(".ic").textContent = sndOn ? "🔊" : "🔇";
+      if (sndOn) ding(true);
+    });
+  })();
   function layout() {
     vw = innerWidth; vh = stageEl.clientHeight || innerHeight;
     mobile = matchMedia("(max-width:760px), (max-aspect-ratio:4/5)").matches;
@@ -255,6 +284,8 @@
       var bottom = 57, typingAt = -1;
       sg.rows.forEach(function (row, j) {
         var msg = sg.msgs[j], age = a - msg.at, p = clamp(age / .32);
+        if (age >= 0 && age < .25 && live && !row._dinged) { row._dinged = true; ding(msg.incoming); }
+        if (age < 0) row._dinged = false;
         row.style.opacity = reduced ? (age >= 0 ? 1 : 0) : clamp(age / .15).toFixed(3);
         row.style.transform = reduced ? "none" : "translateY(" + (12 * (1 - out(p))).toFixed(2) + "px) scale(" + (.82 + .18 * spring(p)).toFixed(4) + ")";
         if (age >= 0) bottom = sg.bodyTop + sg.rowGeo[j][0] + sg.rowGeo[j][1] + 14;

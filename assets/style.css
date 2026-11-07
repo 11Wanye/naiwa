@@ -302,3 +302,8 @@ footer a{color:var(--gold2);text-decoration:none}
 @media (max-width:760px), (max-aspect-ratio:4/5){
   .layers>.layer:first-child .imgbox{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 72%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 72%,transparent 100%)}
 }
+
+.snd{pointer-events:auto;display:inline-flex;align-items:center;gap:6px;height:calc(var(--u)*34px);padding:0 calc(var(--u)*14px);border-radius:999px;border:1px solid rgba(246,239,226,.22);background:rgba(15,22,34,.6);color:rgba(246,239,226,.8);font:400 calc(var(--u)*12px)/1 var(--sans);letter-spacing:.16em;cursor:pointer;transition:border-color .2s,color .2s}
+.snd:hover,.snd[aria-pressed=true]{border-color:rgba(242,210,122,.6);color:var(--gold2)}
+.snd .ic{font-size:calc(var(--u)*14px);letter-spacing:0}
+@media (max-width:760px), (max-aspect-ratio:4/5){.snd{height:30px;padding:0 10px}.snd .tx{display:none}.nav-right{gap:10px}}
