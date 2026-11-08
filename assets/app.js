@@ -441,7 +441,16 @@
     h += '<header class="more-head reveal"><div class="kicker">资料 · 分析 · 分工</div><h2>奶蛙的情绪价值<br><span class="gold">从哪来？</span></h2><p>' + esc(C.site.subtitle) + "。下面是我们每一部分的材料和分析，还没交的部分先标为「待补充」。</p>" +
       '<nav class="toc"><a href="#sec-intro">奶蛙是什么</a><a href="#sec-theory">理论</a><a href="#sec-videos">视频</a><a href="#sec-emoji">表情包</a><a href="#sec-evidence">使用场景</a><a href="#sec-journal">期刊</a><a href="#sec-closing">结语</a><a href="#sec-team">小组成员</a></nav></header>';
     // A
-    h += '<section class="blk reveal" id="sec-intro">' + head(A, "intro", "01") + (A.paragraphs && A.paragraphs.length ? '<div class="lead">' + paras(A.paragraphs) + "</div>" : ph(A.lead)) + "</section>";
+    h += '<section class="blk reveal" id="sec-intro">' + head(A, "intro", "01") + (A.blocks && A.blocks.length ? A.blocks.map(function (b, bi) {
+      var o = '<div class="ablk"><h4 class="ah">' + esc(b.title) + "</h4>";
+      if (b.paragraphs) o += '<div class="atext">' + paras(b.paragraphs) + "</div>";
+      if (b.points) o += '<div class="grid g2" style="margin-top:20px">' + b.points.map(function (pt, i) { return '<div class="card"><div class="num">0' + (i + 1) + "</div><h4>" + esc(pt.title) + "</h4><p>" + esc(pt.text) + "</p></div>"; }).join("") + "</div>";
+      if (b.figures) o += '<div class="afigs">' + b.figures.map(function (f) {
+        var imgs = (f.group || [f.src]).map(function (src) { return '<img src="' + esc(src) + '" alt="' + esc(f.caption) + '" loading="lazy" data-zoom>'; }).join("");
+        return '<figure class="afig' + (f.group ? " grp" : "") + '"><div class="aimgs">' + imgs + "</div><figcaption>" + esc(f.caption) + "</figcaption></figure>";
+      }).join("") + "</div>";
+      return o + "</div>";
+    }).join("") : (A.paragraphs && A.paragraphs.length ? '<div class="lead">' + paras(A.paragraphs) + "</div>" : ph(A.lead))) + "</section>";
     // B
     h += '<section class="blk reveal" id="sec-theory">' + head(B, "theory", "02") + '<div class="grid g3">' + B.cards.map(function (c, i) {
       return '<div class="card"><div class="num">0' + (i + 1) + "</div><h4>" + esc(c.title) + '</h4><p class="emotion">' + esc(c.hint) + "</p>" + (c.text ? "<p style=\"margin-top:12px\">" + esc(c.text) + "</p>" : '<p class="empty" style="margin-top:14px">待补充</p>') + "</div>";
@@ -482,7 +491,7 @@
     }).join("") + "</ol></section>";
     h += "</div>";
     var TH = C.thanks;
-    h += '<section class="thanks" id="sec-thanks" aria-label="' + esc(TH.line1 + " " + TH.line2) + '"><div class="thanks-bg" style="background-image:url(' + esc(TH.image) + ')"></div><div class="thanks-in reveal"><div class="kicker">' + esc(C.site.title) + " · " + esc(C.site.course) + '</div><h2><span class="t1">' + esc(TH.line1) + '</span><span class="t2">' + esc(TH.line2) + '</span></h2><p>' + esc(C.site.subtitle) + '</p></div><footer>' + esc(Z.references || "") + ' · <a href="#top">回到开头 ↑</a></footer></section>';
+    h += '<section class="thanks" id="sec-thanks" aria-label="' + esc(TH.line1 + " " + TH.line2) + '"><div class="thanks-bg" style="background-image:url(' + esc(TH.image) + ')"></div><div class="thanks-in reveal"><div class="kicker">' + esc(C.site.title) + " · " + esc(C.site.course) + '</div><h2><span class="t1">' + esc(TH.line1) + '</span><span class="t2">' + esc(TH.line2) + '</span></h2><p>' + esc(C.site.subtitle) + '</p></div><footer>' + (TH.disclaimer ? '<span class="disc">' + esc(TH.disclaimer) + '</span><br>' : "") + esc(Z.references || "") + ' · <a href="#top">回到开头 ↑</a></footer></section>';
     h = '<div class="more-bg" aria-hidden="true"></div>' + h;
     $("#more").innerHTML = h;
   }

@@ -240,7 +240,8 @@ footer a{color:var(--gold2);text-decoration:none}
 .iv{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px;align-items:start}@media (max-width:760px){.iv{grid-template-columns:1fr}}
 .iv .shot{width:auto}.iv .shot img{width:100%;height:auto;max-height:none}
 @media (max-width:760px), (max-aspect-ratio:4/5){.strip .shot img{height:240px}.strip.tall .shot img{height:360px}}
-.nav{transition:background .4s ease-out}.nav.solid{background:linear-gradient(rgba(11,17,27,.94) 55%,rgba(11,17,27,0))}
+.nav{transition:background .4s ease-out}.nav.solid{background:linear-gradient(rgba(11,17,27,.97) 68%,rgba(11,17,27,0));padding-bottom:calc(var(--u)*30px + 18px)}
+#more .blk,#more .ablk{scroll-margin-top:140px}
 /* ---------- 07 结语 ---------- */
 #more{padding-bottom:0}
 .closing{padding:130px 0 120px}
@@ -313,3 +314,17 @@ footer a{color:var(--gold2);text-decoration:none}
 .more-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0c121c 0%,rgba(12,18,28,.92) 38%,rgba(12,18,28,.45) 68%,rgba(12,18,28,.15) 100%),linear-gradient(180deg,rgba(12,18,28,.5),transparent 25%,transparent 75%,rgba(12,18,28,.6))}
 #more>*:not(.more-bg){position:relative;z-index:1}
 @media (max-width:760px), (max-aspect-ratio:4/5){.more-bg{background-position:82% center;opacity:.32}.more-bg::after{background:linear-gradient(180deg,rgba(12,18,28,.55),rgba(12,18,28,.25) 50%,rgba(12,18,28,.65))}}
+
+/* A 部分 */
+.ablk{margin-top:44px}.ablk:first-of-type{margin-top:28px}
+.ah{font:600 24px/1.4 var(--serif);color:var(--gold2);margin-bottom:16px}
+.atext{max-width:860px}.atext p{margin:0 0 14px;font-size:17px;line-height:1.95}
+.afigs{display:grid;grid-template-columns:1fr 1fr;gap:28px 26px;margin-top:28px;align-items:start;max-width:1100px}
+.afig{margin:0;padding:14px;border-radius:18px;background:rgba(246,239,226,.05);border:1px solid rgba(246,239,226,.08)}
+.afig.grp{grid-column:1/-1}
+.aimgs{display:grid;gap:12px}.grp .aimgs{grid-template-columns:repeat(3,minmax(0,1fr));align-items:center}
+.afig img{display:block;width:100%;height:auto;border-radius:10px;cursor:zoom-in;background:#fff}
+.afig figcaption{margin-top:10px;font:400 12.5px/1.7 var(--sans);color:rgba(246,239,226,.62);letter-spacing:.04em}
+.thanks footer .disc{letter-spacing:.06em;display:inline-block;max-width:760px}
+@media (max-width:760px){.afigs{grid-template-columns:1fr}.grp .aimgs{grid-template-columns:1fr}.ah{font-size:20px}.atext p{font-size:15.5px}}
+.afig img{max-height:560px;object-fit:contain;background:rgba(246,239,226,.04)}
