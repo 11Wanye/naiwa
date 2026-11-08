@@ -328,3 +328,4 @@ footer a{color:var(--gold2);text-decoration:none}
 .thanks footer .disc{letter-spacing:.06em;display:inline-block;max-width:760px}
 @media (max-width:760px){.afigs{grid-template-columns:1fr}.grp .aimgs{grid-template-columns:1fr}.ah{font-size:20px}.atext p{font-size:15.5px}}
 .afig img{max-height:560px;object-fit:contain;background:rgba(246,239,226,.04)}
+.vsrc{margin-top:34px;padding:20px 24px;border-radius:16px;background:rgba(246,239,226,.04);border:1px solid rgba(246,239,226,.08)}.vsrc h4{font-size:15px;margin-bottom:10px;color:var(--gold2)}.vsrc ul{list-style:none;padding:0;margin:0}.vsrc li{font-size:14px;line-height:2;color:rgba(246,239,226,.75)}.vsrc a{color:var(--gold2);text-decoration:none;white-space:nowrap}
