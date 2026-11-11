@@ -377,15 +377,28 @@ window.NAIWA = {
     ]
   },
 
-  // 期刊对照（待补充）
+  // F 期刊对照（徐紫嫣定稿）
   journal: {
     title: "别人也研究过",
-    status: "待补充",
-    paperTitle: "", authors: "", citation: "", url: "",
-    comparison: [
-      { dimension: "研究对象", paper: "", naiwa: "" },
-      { dimension: "研究方法", paper: "", naiwa: "" },
-      { dimension: "情绪与文化意义", paper: "", naiwa: "" }
+    member: "徐紫嫣",
+    paperTitle: "Youth culture of self-mockery: bodily memes and economies of affect in China’s online space",
+    paperZh: "青年自嘲文化：中国网络空间中的身体 Meme 与情感经济",
+    authors: "Peng (2026)",
+    citation: "Peng, J. (2026). Youth culture of self-mockery: bodily memes and economies of affect in China’s online space. Chinese Journal of Communication, 19(3), 330-346.",
+    blocks: [
+      { title: "一、从“内敛自嘲”到“外放狂笑”", paras: [
+        "Peng撰写的论文《Youth culture of self-mockery: bodily memes and economies of affect in China’s online space》（青年自嘲文化：中国网络空间中的身体Meme与情感经济），研究了中国青年是如何通过“身体Meme”（bodily memes）来进行情感表达的。Peng梳理了近十年来从“屌丝”、“丧”到“躺平”的文化演变，并借用了Ahmed的“情感经济”（affective economy）概念，指出Meme是情感的黏合剂：“memes function as the abstraction and medium of affects or, in Ahmed’s words, ‘sticky signs’ binding subjects together” (Peng, 2026, p. 332)。在聊天中发奶蛙，是为了把双方的情绪连接起来。",
+        "更重要的是，Peng指出用户在传播Meme时，并非被动接受，而是通过将个人的生活语境加入共享的模板中，来主动“表演”情绪：“Users perform emotions by adding shared memetic templates with varied individual contexts, connecting individuals with shared experiences and fostering collective identities and communities” (Peng, 2026, p. 332)。",
+        "在仔细阅读Peng的研究后，我发现了一个非常有趣的对照点。Peng研究的“自嘲文化”，如“葛优瘫”、“咸鱼”、“躺平”，其核心是“内敛的消解”，年轻人在面对过度竞争时，通过自我降级、展示疲态来被动抵抗。但我们组研究的奶蛙，展现的却是一种“外放的狂欢”。朋友约打游戏被放鸽子时回一张「惊鸿一瞥」，朋友开会社死时先回「捧腹大笑」再追问关心，情侣说甜言蜜语时用「切换战斗模式」调侃回去。奶蛙的情绪更多是“我笑死”、“我准备好了”，即使是累和委屈，也常常用硬撑和搞笑的方式表达出来。不过它们底层逻辑一致，奶蛙同样是一个典型的“身体Meme”，人们利用奶蛙夸张的身体姿态作为共享模板，来与他人完成社交连接。",
+        "如果说“自嘲Meme”是青年在压力下的“向内收缩”，那么“奶蛙Meme”就是青年在压力下的“向外释放”。但在情感经济的运作机制下，它们都是高度符号化、被自然化、且极具后现代解构色彩的文化产物。"
+      ] },
+      { title: "二、总结", paras: [
+        "综上所述，奶蛙的情绪价值不是凭空产生的，而是有着清晰的逻辑。奶蛙通过极简的视觉符号，实现“外延到内涵”的秒懂，降低了沟通成本；部分二创可以用拼贴（pastiche）来理解：它们用荒诞和无厘头冲淡了沉重的生活压力，但荒诞始终叠在「笑到失控」这一稳定核心之上。它也是中国青年利用“身体Meme”进行情感经济运作的典型案例，只不过它提供了一种与“丧文化”不同的、更具外放和社交属性的解压模板。"
+      ] }
+    ],
+    contrast: [
+      { label: "自嘲 Meme", eg: "葛优瘫 · 咸鱼 · 躺平", line: "向内收缩：自我降级、展示疲态" },
+      { label: "奶蛙 Meme", eg: "惊鸿一瞥 · 捧腹大笑 · 切换战斗模式", line: "向外释放：我笑死、我准备好了" }
     ]
   },
 
@@ -396,7 +409,7 @@ window.NAIWA = {
     conclusion: "奶蛙的情绪价值不只是我们自己给它的。它本身就有一个稳定的核心，就是那张「笑到失控」「明明没事却在逞强」的脸。我们再把自己的尴尬、无语和委屈叠到这张脸上。一只蛙替我们把说不出口的话说了出来，于是我们在它身上认出了自己。",
     highlights: ["笑到失控", "明明没事却在逞强", "于是我们在它身上认出了自己"],
     // 页面最底下的一行小字参考资料
-    references: "参考：Barthes, Roland. Mythologies.（版本与页码待补充）"
+    references: "参考：Barthes, Roland. Mythologies.（版本与页码待补充）；Peng, J. (2026). Youth culture of self-mockery: bodily memes and economies of affect in China’s online space. Chinese Journal of Communication, 19(3), 330-346."
   },
 
   // 08 小组成员与分工

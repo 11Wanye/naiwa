@@ -477,10 +477,10 @@
       '<div style="margin-top:40px"><div><h4 class="ivh">小访谈</h4><div class="quotes" style="max-width:820px">' + E.interviews.map(function (q) { return "<blockquote style=\"font-size:17px\">“" + esc(q) + "”</blockquote>"; }).join("") + "</div>" + (E.interviewImages && E.interviewImages.length ? '<div class="iv">' + E.interviewImages.map(function (it) { return '<figure class="shot"><img src="' + esc(it.src) + '" alt="' + esc(it.caption) + '" loading="lazy" data-zoom><figcaption>' + esc(it.caption) + "</figcaption></figure>"; }).join("") + "</div>" : "") + "</div></div></section>";
     // F
     var hasPaper = F.paperTitle;
-    h += '<section class="blk reveal" id="sec-journal">' + head(F, "journal", "06") + (hasPaper ? "<p class=\"lead\">" + esc(F.paperTitle) + " · " + esc(F.authors) + "</p><p>" + esc(F.citation) + "</p>" : ph("论文题名、作者和出处待补充。")) +
-      '<table style="margin-top:28px"><thead><tr><th>对照维度</th><th>论文</th><th>奶蛙</th></tr></thead><tbody>' + F.comparison.map(function (r) {
-        return "<tr><td>" + esc(r.dimension) + "</td><td>" + (r.paper ? esc(r.paper) : '<span class="empty">待补充</span>') + "</td><td>" + (r.naiwa ? esc(r.naiwa) : '<span class="empty">待补充</span>') + "</td></tr>";
-      }).join("") + "</tbody></table></section>";
+    h += '<section class="blk reveal" id="sec-journal">' + head(F, "journal", "06") + (hasPaper ? '<div class="jpaper"><div class="jt">' + esc(F.paperTitle) + '</div>' + (F.paperZh ? '<div class="jz">' + esc(F.paperZh) + '</div>' : "") + '<div class="ja">' + esc(F.authors) + '</div></div>' : ph("论文题名、作者和出处待补充。")) +
+      (F.contrast && F.contrast.length ? '<div class="jvs">' + F.contrast.map(function (c) { return '<div class="jc"><b>' + esc(c.label) + '</b><span class="eg">' + esc(c.eg) + '</span><span>' + esc(c.line) + '</span></div>'; }).join('<div class="jx">vs</div>') + '</div>' : "") +
+      (F.blocks || []).map(function (bk) { return '<div class="ablk"><h4>' + esc(bk.title) + '</h4>' + paras(bk.paras) + '</div>'; }).join("") +
+      (F.citation ? '<p class="jref"><b>参考文献</b><br>' + esc(F.citation) + '</p>' : "") + "</section>";
     // 结论
     var concl = esc(Z.conclusion);
     (Z.highlights || []).forEach(function (w) { concl = concl.split(esc(w)).join('<span class="gold">' + esc(w) + "</span>"); });
