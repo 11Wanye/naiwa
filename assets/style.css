@@ -346,3 +346,24 @@ footer a{color:var(--gold2);text-decoration:none}
 
 .emo .dcap{font-size:11px;opacity:.6;margin-top:6px;text-align:center}
 #sec-emoji .ablk>p{margin:0 0 16px;line-height:1.85}
+
+/* B 理论 */
+#sec-theory .card p{margin:12px 0 0;font-size:14.5px;line-height:1.85;letter-spacing:.02em}
+#sec-theory .card h4{line-height:1.35}
+#sec-theory .blead{margin:36px 0 0;max-width:860px}
+#sec-theory .ablk p{margin:0 0 16px;line-height:1.85}
+.bcite{color:var(--gold2);text-decoration:none;font-weight:500}
+.bref,.bref p{font-size:13.5px;letter-spacing:0;line-height:1.7;font-family:"Helvetica Neue",Helvetica,Arial,"Noto Sans CJK SC","Noto Sans SC",sans-serif}
+.bref p{margin:8px 0 0;word-break:normal;overflow-wrap:anywhere}
+.bref a{color:var(--gold2);text-decoration:none;overflow-wrap:anywhere;word-break:break-word}
+.bref b{display:block;margin-bottom:6px;letter-spacing:.08em}
+
+/* 页脚参考文献变长后：西文字体避免 CJK 弯引号留白，并给 THANK YOU 留出底部空间 */
+.thanks{padding-bottom:180px}
+.thanks-in{padding:0 24px 24px}
+.thanks footer{letter-spacing:0;line-height:1.75;max-width:1040px;margin:0 auto;word-break:normal;overflow-wrap:anywhere;bottom:16px;font-family:"Helvetica Neue",Helvetica,Arial,"Noto Sans CJK SC","Noto Sans SC",sans-serif}
+.thanks footer .disc{display:block;margin:0 auto 10px;letter-spacing:.06em;font-family:"Noto Sans CJK SC","Noto Sans SC","Source Han Sans SC","PingFang SC",sans-serif}
+@media (max-width:760px), (max-aspect-ratio:4/5){
+  .thanks{padding-bottom:260px}
+  .thanks footer{font-size:11px;letter-spacing:0;line-height:1.7;padding:0 16px 8px;text-align:left}
+}

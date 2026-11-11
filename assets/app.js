@@ -423,6 +423,8 @@
   /* ---------- 故事后的资料区 ---------- */
   function ph(text) { return '<div class="ph"><b>待补充</b>' + esc(text || "这一部分的内容还没交，交了之后填到 content.js 里。") + "</div>"; }
   function paras(arr) { return (arr || []).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join(""); }
+  function cite(s) { return esc(s).replace(/\[(\d+)\]/g, '<a class="bcite" href="#bref-$1">[$1]</a>'); }
+  function linkify(s) { return esc(s).replace(/(https:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>'); }
   function strip(list, alt, empty, cls) {
     if (!list || !list.length) return ph(empty);
     return '<div class="carousel"><button class="cz prev" type="button" aria-label="上一张">‹</button><button class="cz next" type="button" aria-label="下一张">›</button><div class="strip' + (cls ? " " + cls : "") + '">' + list.map(function (it, i) {
@@ -438,7 +440,7 @@
   function buildMore() {
     var A = C.intro, B = C.theory, V = C.videos, D = C.emoji, E = C.evidence, F = C.journal, Z = C.closing;
     var h = '<div class="wrap">';
-    h += '<header class="more-head reveal"><div class="kicker">资料 · 分析 · 分工</div><h2>奶蛙的情绪价值<br><span class="gold">从哪来？</span></h2><p>' + esc(C.site.subtitle) + "。下面是我们每一部分的材料和分析，还没交的部分先标为「待补充」。</p>" +
+    h += '<header class="more-head reveal"><div class="kicker">资料 · 分析 · 分工</div><h2>奶蛙的情绪价值<br><span class="gold">从哪来？</span></h2><p>' + esc(C.site.subtitle) + "。下面是我们每一部分的材料和分析。</p>" +
       '<nav class="toc"><a href="#sec-intro">奶蛙是什么</a><a href="#sec-theory">理论</a><a href="#sec-videos">视频</a><a href="#sec-emoji">表情包</a><a href="#sec-evidence">使用场景</a><a href="#sec-journal">期刊</a><a href="#sec-closing">结语</a><a href="#sec-team">小组成员</a></nav></header>';
     // A
     h += '<section class="blk reveal" id="sec-intro">' + head(A, "intro", "01") + (A.blocks && A.blocks.length ? A.blocks.map(function (b, bi) {
@@ -453,8 +455,15 @@
     }).join("") : (A.paragraphs && A.paragraphs.length ? '<div class="lead">' + paras(A.paragraphs) + "</div>" : ph(A.lead))) + "</section>";
     // B
     h += '<section class="blk reveal" id="sec-theory">' + head(B, "theory", "02") + '<div class="grid g3">' + B.cards.map(function (c, i) {
-      return '<div class="card"><div class="num">0' + (i + 1) + "</div><h4>" + esc(c.title) + '</h4><p class="emotion">' + esc(c.hint) + "</p>" + (c.text ? "<p style=\"margin-top:12px\">" + esc(c.text) + "</p>" : '<p class="empty" style="margin-top:14px">待补充</p>') + "</div>";
-    }).join("") + "</div></section>";
+      return '<div class="card"><div class="num">0' + (i + 1) + "</div><h4>" + esc(c.title) + "</h4>" + (c.hint ? '<p class="emotion">' + esc(c.hint) + "</p>" : "") + (c.text ? "<p>" + cite(c.text) + "</p>" : "") + "</div>";
+    }).join("") + "</div>" +
+      (B.lead ? '<p class="lead blead">' + cite(B.lead) + "</p>" : "") +
+      (B.blocks || []).map(function (bk) {
+        return '<div class="ablk"><h4 class="ah">' + esc(bk.title) + "</h4>" + (bk.paras || []).map(function (p) { return "<p>" + cite(p) + "</p>"; }).join("") + "</div>";
+      }).join("") +
+      (B.refs && B.refs.length ? '<div class="jref bref"><b>参考资料</b>' + B.refs.map(function (r) {
+        return '<p id="bref-' + esc(r.n) + '">' + linkify(r.text) + "</p>";
+      }).join("") + "</div>" : "") + "</section>";
     // C
     h += '<section class="blk reveal" id="sec-videos">' + head(V, "videos", "03") + '<p class="lead">' + esc(V.intro) + '</p><div class="grid" style="margin-top:40px;gap:44px">' + V.items.map(function (it, i) {
       var player = it.video ? '<video class="vplayer" controls playsinline preload="metadata"' + (it.poster ? ' poster="' + esc(it.poster) + '"' : "") + ' aria-label="' + esc(it.title) + '"><source src="' + esc(it.video) + '" type="video/mp4"></video>' : '<div class="poster">' + ph("视频文件待补充。") + "</div>";
@@ -495,7 +504,12 @@
     }).join("") + "</ol></section>";
     h += "</div>";
     var TH = C.thanks;
-    h += '<section class="thanks" id="sec-thanks" aria-label="' + esc(TH.line1 + " " + TH.line2) + '"><div class="thanks-bg" style="background-image:url(' + esc(TH.image) + ')"></div><div class="thanks-in reveal"><div class="kicker">' + esc(C.site.title) + " · " + esc(C.site.course) + '</div><h2><span class="t1">' + esc(TH.line1) + '</span><span class="t2">' + esc(TH.line2) + '</span></h2><p>' + esc(C.site.subtitle) + '</p></div><footer>' + (TH.disclaimer ? '<span class="disc">' + esc(TH.disclaimer) + '</span><br>' : "") + esc(Z.references || "") + (D.sourceLinks && D.sourceLinks.length ? '；奶蛙表情包图片：小红书用户笔记（' + D.sourceLinks.map(function (x) { return '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.label) + '</a>'; }).join("、") + '）' : "") + ' · <a href="#top">回到开头 ↑</a></footer></section>';
+    h += '<section class="thanks" id="sec-thanks" aria-label="' + esc(TH.line1 + " " + TH.line2) + '"><div class="thanks-bg" style="background-image:url(' + esc(TH.image) + ')"></div><div class="thanks-in reveal"><div class="kicker">' + esc(C.site.title) + " · " + esc(C.site.course) + '</div><h2><span class="t1">' + esc(TH.line1) + '</span><span class="t2">' + esc(TH.line2) + '</span></h2><p>' + esc(C.site.subtitle) + '</p></div><footer>' + (TH.disclaimer ? '<span class="disc">' + esc(TH.disclaimer) + '</span><br>' : "") + (function () {
+      var parts = [];
+      if (Z.references) parts.push(esc(Z.references).replace(/[。．.\s；;]+$/g, ""));
+      if (D.sourceLinks && D.sourceLinks.length) parts.push('奶蛙表情包图片：小红书用户笔记（' + D.sourceLinks.map(function (x) { return '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.label) + '</a>'; }).join("、") + '）');
+      return parts.join("；");
+    })() + ' · <a href="#top">回到开头 ↑</a></footer></section>';
     h = '<div class="more-bg" aria-hidden="true"></div>' + h;
     $("#more").innerHTML = h;
   }
