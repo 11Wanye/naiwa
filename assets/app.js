@@ -435,7 +435,7 @@
   function pend(list) { return list && list.length ? '<ul class="notes">' + list.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" : ""; }
   function head(sec, id, label) {
     var pill = sec.status ? '<span class="pending-pill">' + esc(sec.status) + "</span>" : "";
-    return '<div class="kicker">' + esc(label) + (sec.member ? " · " + esc(sec.member) : "") + "</div><h3>" + esc(sec.title) + pill + "</h3>";
+    return '<div class="kicker">' + esc(label) + "</div><h3>" + esc(sec.title) + pill + "</h3>";
   }
   function buildMore() {
     var A = C.intro, B = C.theory, V = C.videos, D = C.emoji, E = C.evidence, F = C.journal, Z = C.closing;
