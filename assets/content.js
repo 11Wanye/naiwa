@@ -261,14 +261,17 @@ window.NAIWA = {
 
   // 四张表情包
   emoji: {
-    title: "四张表情，四种回应",
+    title: "奶蛙表情包如何制造情绪价值？",
+    member: "杨琦",
+    h1: "一、共同文化认知：奶蛙怎样被大家读懂", h2: "二、四张奶蛙表情包：从图像意义到聊天用法", h3: "三、奶蛙表情包的情绪价值", h4: "四、结论",
+    imgNote: "图片来源：小红书用户笔记",
     lead: "在这一部分，我们把重点放在静态表情包进入聊天之后的作用：人们会在什么情境下发送它，以及它能替用户表达什么。",
     mythTitle: "共同文化认知：奶蛙怎样被大家读懂",
     myth: [
       "奶蛙有一组比较容易辨认的视觉特征：黄色身体、绿色大眼睛、圆滚滚的身形，以及略显笨拙的姿态。与此同时，它的动作和表情往往比较夸张。呆萌的外形与强烈的情绪表现形成反差，让奶蛙在不同表情包中仍保留相对鲜明的形象特点。",
       "在网络传播和日常聊天中，用户会结合图片中的动作、文字和具体语境理解奶蛙。例如，看到它摆出战斗姿势，可能会联想到逞强或准备接招；看到它捧腹大笑，则可能理解为开心、嘲笑，也可能是在表达讽刺。同一张图片在不同聊天关系和语境中，含义也可能有所变化。",
       "因此，分析奶蛙表情包时，既要注意它相对稳定的外形和动作线索，也要考虑用户发送图片时的具体情境。经过反复使用，一些常见的理解方式逐渐为网友熟悉，使奶蛙成为日常聊天中可以被识别和借用的情绪表达符号。",
-      "奶蛙先有容易辨认的形象特征和反差感，用户再结合自己的处境赋予具体情绪。经过重复使用，部分读法逐渐成为群体熟悉的文化认知。这就是奶蛙从一个卡通形象变成共享情绪符号的过程。"
+      "奶蛙先有容易辨认的形象特征和反差感，用户再结合自己的处境赋予具体情绪。经过重复使用，部分读法逐渐成为群体熟悉的文化认知。这些表情包虽然情绪各不相同，但大多围绕「笑到失控」或「硬撑」这一稳定核心展开。这就是奶蛙从一个卡通形象变成共享情绪符号的过程。"
     ],
     items: [
       {
@@ -299,7 +302,7 @@ window.NAIWA = {
     values: [{"title": "降低表达成本", "text": "在聊天中，用户不一定每次都需要把情绪完整地说出来。一张表情包可以简短地传递态度，尤其适合回应那些不需要长篇解释、但又希望对方理解的日常情境。"}, {"title": "让情绪表达更间接，减少尴尬", "text": "有些感受不容易直接说出口，例如无语、委屈或疲惫。借助奶蛙夸张或呆萌的形象，用户可以用相对轻松的方式表达这些感受，减少直接倾诉时可能出现的尴尬，也让聊天气氛不至于过于沉重。"}, {"title": "帮助获得共鸣，缓和社交氛围", "text": "当聊天双方熟悉某张表情包的常见读法时，它可以成为一种互动线索。例如，发送雨天流泪的奶蛙，可能是在暗示自己有些难过，也为朋友询问近况或表达安慰提供一个入口。不过，对方是否能准确理解，仍取决于双方的关系和具体语境。"}],
     summary: "四张图片呈现出不同的情绪倾向：扎马步的奶蛙偏向逞强和接招，捧腹大笑的奶蛙可以表达开心或讽刺，“惊鸿一瞥”的奶蛙偏向惊讶和一时语塞，雨天流泪的奶蛙则更接近委屈、疲惫和自我调侃。由此可见，奶蛙表情包并不只用于制造笑点，也可以承载不同程度的情绪表达。",
     conclusion: ["奶蛙表情包的意义不只在于制造笑点。它以相对容易辨认的形象为基础，通过不同动作、表情和文字呈现多种情绪。用户会结合自己的处境和聊天语境理解这些图像，使它们成为日常交流中一种简短而灵活的表达方式。", "从这四张表情包可以看出，奶蛙能够在日常聊天中发挥一定的情绪价值：它让态度更容易传达，也让委屈、疲惫或无语等感受可以通过较轻松的方式表达。同时，表情包还可能为朋友之间的回应、共鸣和安慰创造机会。它不只是“好笑”，也可以成为人们传递情绪的一种视觉语言。", "至于这些常见读法如何进一步形成文化意义，以及其中哪些观念可能在传播中变得理所当然，将由 B 部分结合 Myth 理论和后现代主义继续分析；视频中的笑声、动作和二创传播则由 C 部分展开。"],
-    sources: [{"label": "图一 扎马步的奶蛙 · 小红书 @akane_Aki", "url": "https://www.xiaohongshu.com/discovery/item/69dbebf7000000002102c3ec?source=webshare&xhsshare=pc_web&xsec_token=AB-gxJ4rwJnWjssb9Qjkun-Ry9-hmY0JFc07PFTK22_qY=&xsec_source=pc_share"}, {"label": "图二 捧腹大笑的奶蛙 · 小红书 @Shea《奶蛙到底在笑什么》", "url": "https://www.xiaohongshu.com/discovery/item/6ae296bb000000003601ab7c?source=webshare&xhsshare=pc_web&xsec_token=ABOLA3g-cfkdDerCkc--Jc6y0xZByXO-3HoCGGCZpzfBM=&xsec_source=pc_share"}, {"label": "图三 “惊鸿一瞥”的奶蛙 · 小红书 @云舒云卷《3D奶蛙审美积累》", "url": "https://www.xiaohongshu.com/discovery/item/6aa8f97a0000000028031722?source=webshare&xhsshare=pc_web&xsec_token=ABHQtP1U1PcjkGFiSzyX_l6Vd_ihx9lmmTNI6ksoQ0-Dk=&xsec_source=pc_share"}, {"label": "图四 雨天流泪的奶蛙 · 小红书 @Bojack🐗《成为一个平静的龙,需要掉许多眼泪》", "url": "https://www.xiaohongshu.com/discovery/item/6a06eecf000000003502e4f3?source=webshare&xhsshare=pc_web&xsec_token=ABKSYYW0a82wbk1REqyy0lHc3qgqSpTM5-XM2NcPJQIi4=&xsec_source=pc_share"}],
+    sourceLinks: [{"label": "图一", "url": "https://www.xiaohongshu.com/discovery/item/69dbebf7000000002102c3ec?source=webshare&xhsshare=pc_web&xsec_token=AB-gxJ4rwJnWjssb9Qjkun-Ry9-hmY0JFc07PFTK22_qY=&xsec_source=pc_share"}, {"label": "图二", "url": "https://www.xiaohongshu.com/discovery/item/6ae296bb000000003601ab7c?source=webshare&xhsshare=pc_web&xsec_token=ABOLA3g-cfkdDerCkc--Jc6y0xZByXO-3HoCGGCZpzfBM=&xsec_source=pc_share"}, {"label": "图三", "url": "https://www.xiaohongshu.com/discovery/item/6aa8f97a0000000028031722?source=webshare&xhsshare=pc_web&xsec_token=ABHQtP1U1PcjkGFiSzyX_l6Vd_ihx9lmmTNI6ksoQ0-Dk=&xsec_source=pc_share"}, {"label": "图四", "url": "https://www.xiaohongshu.com/discovery/item/6a06eecf000000003502e4f3?source=webshare&xhsshare=pc_web&xsec_token=ABKSYYW0a82wbk1REqyy0lHc3qgqSpTM5-XM2NcPJQIi4=&xsec_source=pc_share"}],
     pending: []
   },
 

@@ -343,3 +343,6 @@ footer a{color:var(--gold2);text-decoration:none}
 .jref{margin-top:28px;font-size:13px;opacity:.75;line-height:1.6}
 @media (max-width:700px){.jvs{flex-direction:column}.jvs .jx{text-align:center}}
 #sec-journal .ablk p{margin:0 0 16px;line-height:1.85}
+
+.emo .dcap{font-size:11px;opacity:.6;margin-top:6px;text-align:center}
+#sec-emoji .ablk>p{margin:0 0 16px;line-height:1.85}

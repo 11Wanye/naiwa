@@ -461,11 +461,15 @@
       return '<article class="video">' + player + '<div><div class="emotion">视频 0' + (i + 1) + "</div><h4 style=\"margin-top:10px\">" + esc(it.title) + "</h4><p>" + esc(it.text) + "</p></div></article>";
     }).join("") + '</div><p style="margin-top:40px" class="lead">' + esc(V.conclusion) + "</p>" + (V.sources && V.sources.length ? '<div class="vsrc"><h4>视频来源</h4><ul>' + V.sources.map(function (x) { return '<li>' + esc(x.label) + ' · <a href="' + esc(x.url) + '" target="_blank" rel="noopener">打开链接 ↗</a></li>'; }).join("") + "</ul></div>" : "") + pend(V.pending) + "</section>";
     // D
-    h += '<section class="blk reveal" id="sec-emoji">' + head(D, "emoji", "04") + '<p class="lead">' + esc(D.lead) + '</p><div class="card" style="margin:36px 0"><h4>' + esc(D.mythTitle) + "</h4>" + paras(D.myth) + '</div><div class="grid g2">' + D.items.map(function (it) {
-      return '<article class="card emo"><img src="' + esc(it.image) + '" alt="' + esc(it.title) + '" data-zoom loading="lazy"><div><h4>' + esc(it.title) + '</h4><div class="emotion">' + esc(it.emotion) + "</div><dl><dt>外延</dt><dd>" + esc(it.denotation) + "</dd><dt>内涵</dt><dd>" + esc(it.connotation) + "</dd><dt>使用</dt><dd>" + esc(it.usage) + "</dd></dl></div></article>";
-    }).join("") + '</div><h4 style="margin:46px 0 18px">奶蛙表情包的情绪价值</h4><div class="grid g3">' + D.values.map(function (v, i) {
+    h += '<section class="blk reveal" id="sec-emoji">' + head(D, "emoji", "04") +
+      '<div class="ablk"><h4 class="ah">' + esc(D.h1) + '</h4>' + paras(D.myth) + '</div>' +
+      '<div class="ablk"><h4 class="ah">' + esc(D.h2) + '</h4><p>' + esc(D.lead) + '</p><div class="grid g2" style="margin-top:20px">' + D.items.map(function (it, i) {
+      return '<article class="card emo"><figure style="margin:0"><img src="' + esc(it.image) + '" alt="' + esc(it.title) + '" data-zoom loading="lazy"><figcaption class="dcap">图' + "一二三四".charAt(i) + ' · ' + esc(D.imgNote) + '</figcaption></figure><div><h4>' + (i + 1) + '. ' + esc(it.title) + '</h4><div class="emotion">' + esc(it.emotion) + "</div><dl><dt>外延</dt><dd>" + esc(it.denotation) + "</dd><dt>内涵</dt><dd>" + esc(it.connotation) + "</dd><dt>使用</dt><dd>" + esc(it.usage) + "</dd></dl></div></article>";
+    }).join("") + '</div></div>' +
+      '<div class="ablk"><h4 class="ah">' + esc(D.h3) + '</h4><p>' + esc(D.summary) + '</p><div class="grid g3" style="margin-top:20px">' + D.values.map(function (v, i) {
       return '<div class="card"><div class="num">0' + (i + 1) + "</div><h4>" + esc(v.title) + "</h4><p>" + esc(v.text) + "</p></div>";
-    }).join("") + '</div><p class="lead" style="margin-top:36px">' + esc(D.summary) + "</p>" + paras(D.conclusion) + (D.sources && D.sources.length ? '<div class="vsrc"><h4>表情包图片来源</h4><ul>' + D.sources.map(function (x) { return '<li>' + esc(x.label) + ' · <a href="' + esc(x.url) + '" target="_blank" rel="noopener">打开链接 ↗</a></li>'; }).join("") + "</ul></div>" : "") + pend(D.pending) + "</section>";
+    }).join("") + '</div></div>' +
+      '<div class="ablk"><h4 class="ah">' + esc(D.h4) + '</h4>' + paras(D.conclusion) + '</div>' + pend(D.pending) + "</section>";
     // E
     h += '<section class="blk reveal" id="sec-evidence">' + head(E, "evidence", "05") + '<p class="lead">' + esc(E.lead) + '</p><div class="grid g3" style="margin-top:36px">' + E.scenes.map(function (s) {
       return '<div class="card use"><img src="' + esc(s.sticker) + '" alt="' + esc(s.name) + '" loading="lazy"><div><div class="rel">' + esc(s.relation) + " · " + esc(s.feeling) + "</div><h4 style=\"margin-bottom:6px\">" + esc(s.name) + "</h4><p style=\"font-size:14px\">" + esc(s.text) + "</p></div></div>";
@@ -491,7 +495,7 @@
     }).join("") + "</ol></section>";
     h += "</div>";
     var TH = C.thanks;
-    h += '<section class="thanks" id="sec-thanks" aria-label="' + esc(TH.line1 + " " + TH.line2) + '"><div class="thanks-bg" style="background-image:url(' + esc(TH.image) + ')"></div><div class="thanks-in reveal"><div class="kicker">' + esc(C.site.title) + " · " + esc(C.site.course) + '</div><h2><span class="t1">' + esc(TH.line1) + '</span><span class="t2">' + esc(TH.line2) + '</span></h2><p>' + esc(C.site.subtitle) + '</p></div><footer>' + (TH.disclaimer ? '<span class="disc">' + esc(TH.disclaimer) + '</span><br>' : "") + esc(Z.references || "") + ' · <a href="#top">回到开头 ↑</a></footer></section>';
+    h += '<section class="thanks" id="sec-thanks" aria-label="' + esc(TH.line1 + " " + TH.line2) + '"><div class="thanks-bg" style="background-image:url(' + esc(TH.image) + ')"></div><div class="thanks-in reveal"><div class="kicker">' + esc(C.site.title) + " · " + esc(C.site.course) + '</div><h2><span class="t1">' + esc(TH.line1) + '</span><span class="t2">' + esc(TH.line2) + '</span></h2><p>' + esc(C.site.subtitle) + '</p></div><footer>' + (TH.disclaimer ? '<span class="disc">' + esc(TH.disclaimer) + '</span><br>' : "") + esc(Z.references || "") + (D.sourceLinks && D.sourceLinks.length ? '；奶蛙表情包图片：小红书用户笔记（' + D.sourceLinks.map(function (x) { return '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.label) + '</a>'; }).join("、") + '）' : "") + ' · <a href="#top">回到开头 ↑</a></footer></section>';
     h = '<div class="more-bg" aria-hidden="true"></div>' + h;
     $("#more").innerHTML = h;
   }
