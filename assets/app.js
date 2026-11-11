@@ -465,7 +465,7 @@
       return '<article class="card emo"><img src="' + esc(it.image) + '" alt="' + esc(it.title) + '" data-zoom loading="lazy"><div><h4>' + esc(it.title) + '</h4><div class="emotion">' + esc(it.emotion) + "</div><dl><dt>外延</dt><dd>" + esc(it.denotation) + "</dd><dt>内涵</dt><dd>" + esc(it.connotation) + "</dd><dt>使用</dt><dd>" + esc(it.usage) + "</dd></dl></div></article>";
     }).join("") + '</div><h4 style="margin:46px 0 18px">奶蛙表情包的情绪价值</h4><div class="grid g3">' + D.values.map(function (v, i) {
       return '<div class="card"><div class="num">0' + (i + 1) + "</div><h4>" + esc(v.title) + "</h4><p>" + esc(v.text) + "</p></div>";
-    }).join("") + '</div><p class="lead" style="margin-top:36px">' + esc(D.summary) + "</p>" + paras(D.conclusion) + pend(D.pending) + "</section>";
+    }).join("") + '</div><p class="lead" style="margin-top:36px">' + esc(D.summary) + "</p>" + paras(D.conclusion) + (D.sources && D.sources.length ? '<div class="vsrc"><h4>表情包图片来源</h4><ul>' + D.sources.map(function (x) { return '<li>' + esc(x.label) + ' · <a href="' + esc(x.url) + '" target="_blank" rel="noopener">打开链接 ↗</a></li>'; }).join("") + "</ul></div>" : "") + pend(D.pending) + "</section>";
     // E
     h += '<section class="blk reveal" id="sec-evidence">' + head(E, "evidence", "05") + '<p class="lead">' + esc(E.lead) + '</p><div class="grid g3" style="margin-top:36px">' + E.scenes.map(function (s) {
       return '<div class="card use"><img src="' + esc(s.sticker) + '" alt="' + esc(s.name) + '" loading="lazy"><div><div class="rel">' + esc(s.relation) + " · " + esc(s.feeling) + "</div><h4 style=\"margin-bottom:6px\">" + esc(s.name) + "</h4><p style=\"font-size:14px\">" + esc(s.text) + "</p></div></div>";
